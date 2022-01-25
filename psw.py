@@ -8,6 +8,11 @@ log=Tk()
 log.geometry("300x100")
 log.title("Авторизация")
 def sps():
+    global reg
+    global login2
+    global psw2
+    global passww
+    global userr
     parol=psw2.get()
     userlog=login2.get()
     userr.append(parol)
@@ -59,7 +64,19 @@ def Exit2():
 def Exit():
     if askyesno("Выход","Выйти?"):
         log.destroy()
-
+def loe_failist(file:str)->str:
+	f=open(file,"r")
+	stroka=f.read()#str
+	stroka=f.readlines()#list
+	f.close()
+	return stroka
+def loe_failist_listisse(file:str)->list:
+	f=open(file,"r")
+	list_=[]
+	for stroka in f:
+		list_.append(stroka.strip())
+	f.close()
+	return list_
 Label(text="Логин:").grid(row=0,column=0)
 login=Entry(width=30)
 login.grid(row=0,column=1,columnspan=3)
