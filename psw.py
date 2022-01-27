@@ -15,13 +15,19 @@ def sps():
     global userr
     user=login2.get()
     passw=psw2.get()
-    proverka=paskontroll(passw)
-    if proverka==True:
-        userr.append(user)
-        passww.append(passw)
-        showinfo(title="OK",message="Пароль принят и добавлен в базу данных!")  
-    else:
-        showinfo(title="ok")
+    #
+    userr.append(user)
+    passww.append(passw)
+    #
+    userr=open("users.txt","a")
+    userr.write(user)
+    userr.close()
+    #
+    passww=open("passwords.txt","a")
+    passww.write(passw)
+    passww.close()
+    #
+    showinfo(title="OK",message="Пароль принят и добавлен в базу данных!")  
 def append():
     global reg
     global login2
